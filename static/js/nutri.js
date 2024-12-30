@@ -4,23 +4,11 @@
 let words = [""]
 returnCalories()
 
-
+console.log("hey budy")
 
 
 function returnCalories(){
-    let ans1 =  document.getElementById("input1").value;
-    let ans2 =  document.getElementById("input2").value;
-    let ans3 =  document.getElementById("input3").value;
-    let ans4 =  document.getElementById("input4").value;
-    let ans5 =  document.getElementById("input5").value;
-    let ans6 =  document.getElementById("input6").value
-    let ans7 =  document.getElementById("input7").value
-    
-    
-  
-    let res1 = Number(ans1)
-    let res6 = Number(ans6)
-    let res4 = Number(ans4)
+   
 
 
     

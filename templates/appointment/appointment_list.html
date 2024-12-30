@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Appointment List</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #220a30;
+            color: #333;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+        }
+
+        h1 {
+            color: #3e93cf;
+            margin-bottom: 20px;
+        }
+
+        ul {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 20px;
+            width: 100%;
+            max-width: 600px;
+            background: #aba4a4;
+            border-radius: 8px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+        }
+
+        li {
+            padding: 15px;
+            border-bottom: 1px solid #ddd;
+        }
+
+        li:last-child {
+            border-bottom: none;
+        }
+
+        li span {
+            font-weight: bold;
+        }
+
+        a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            text-align: center;
+            text-decoration: none;
+            color: #fff;
+            background: #007BFF;
+            border-radius: 4px;
+            font-size: 16px;
+            transition: background 0.3s ease;
+        }
+
+        a:hover {
+            background: #0056b3;
+        }
+
+        a:active {
+            background: #003f7f;
+        }
+
+        @media (max-width: 768px) {
+            ul {
+                width: 90%;
+            }
+
+            a {
+                width: calc(50% - 20px);
+                margin: 10px 10px;
+                box-sizing: border-box;
+            }
+        }
+
+        @media (max-width: 480px) {
+            a {
+                width: 100%;
+                margin: 5px 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1>Marcações</h1>
+    <ul>
+        {% for appointment in appointments %}
+            <li>
+                <span>{{ appointment.user.username }}</span>: {{ appointment.date }}
+            </li>
+        {% endfor %}
+    </ul>
+    <div>
+        <a href="{% url 'create_appointment' %}">Marcar</a>
+        <a href="{% url 'cancel_appointment' %}">Cancelar</a>
+    </div>
+</body>
+</html>
+

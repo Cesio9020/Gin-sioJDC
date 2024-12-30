@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fody Slider</title>
+    <link rel="stylesheet" href="https://unpkg.com/swiper@8/swiper-bundle.min.css" />
+    <link rel="stylesheet" href="{% static 'usuarios/css/usuarios.css' %}">
+
+  </head>
+
+  <body>
+    {% for plan in plans %}
+    <section id="tranding">
+      <div class="container">
+
+        <h1 class="text-center section-heading" style="color: rgb(130, 190, 186);">Plano de treino</h1>
+      </div>
+      
+      <div class="container">
+        <div class="swiper tranding-slider">  
+          <div class="swiper-wrapper">
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">  
+                <img src="{% static 'images/tranding-food-1.jpg' %}" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="food-price">2ª Feira</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                
+                  <h1 class="musculo1" >{{ plan.Musculo1 }}</h1>
+                  <h1 class="Exercise1" >{{ plan.exercicio1 }}</h1>
+                  <h1 class="Exercise2" >{{ plan.exercicio2 }}</h1>
+                  <h1 class="Exercise3" >{{ plan.exercicio3 }}</h1>
+                 
+              </div>
+    
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo2">{{ plan.Musculo2 }}</h1>
+                <h1 class="Exercise4" >{{ plan.exercicio4 }}</h1>
+                <h1 class="Exercise5" >{{ plan.exercicio5 }}</h1>
+                <h1 class="Exercise6" >{{ plan.exercicio6 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo3">{{ plan.Musculo3 }}</h1>
+                <h1 class="Exercise7" >{{ plan.exercicio7 }}</h1>
+                <h1 class="Exercise8" >{{ plan.exercicio8 }}</h1>
+                <h1 class="Exercise9" >{{ plan.exercicio9 }}</h1>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="{% static 'images/tranding-food-1.jpg' %}" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="food-price">3ª Feira</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo1">{{ plan.Musculo4 }}</h1>
+                <h1 class="Exercise1" >{{ plan.exercicio01 }}</h1>
+                <h1 class="Exercise2" >{{ plan.exercicio02 }}</h1>
+                <h1 class="Exercise3" >{{ plan.exercicio03 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo2">{{ plan.Musculo5 }}</h1>
+                <h1 class="Exercise4" >{{ plan.exercicio04 }}</h1>
+                <h1 class="Exercise5" >{{ plan.exercicio05 }}</h1>
+                <h1 class="Exercise6" >{{ plan.exercicio06 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo3">{{ plan.Musculo6 }}</h1>
+                <h1 class="Exercise7" >{{ plan.exercicio07 }}</h1>
+                <h1 class="Exercise8" >{{ plan.exercicio08 }}</h1>
+                <h1 class="Exercise9" >{{ plan.exercicio09 }}</h1>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="{% static 'images/tranding-food-1.jpg' %}"  alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="food-price">4ª Feira</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo1">{{ plan.Musculo7 }}</h1>
+                <h1 class="Exercise1" >{{ plan.exercicio001 }}</h1>
+                <h1 class="Exercise2" >{{ plan.exercicio002 }}</h1>
+                <h1 class="Exercise3" >{{ plan.exercicio003 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo2">{{ plan.Musculo8 }}</h1>
+                <h1 class="Exercise4" >{{ plan.exercicio004 }}</h1>
+                <h1 class="Exercise5" >{{ plan.exercicio005 }}</h1>
+                <h1 class="Exercise6" >{{ plan.exercicio006 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo3">{{ plan.Musculo9 }}</h1>
+                <h1 class="Exercise7" >{{ plan.exercicio007 }}</h1>
+                <h1 class="Exercise8" >{{ plan.exercicio008 }}</h1>
+                <h1 class="Exercise9" >{{ plan.exercicio009 }}</h1>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="{% static 'images/tranding-food-1.jpg' %}"  alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="food-price">5ª Feira</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo1">{{ plan.Musculo01 }}</h1>
+                <h1 class="Exercise1" >{{ plan.exercicio0001 }}</h1>
+                <h1 class="Exercise2" >{{ plan.exercicio0002 }}</h1>
+                <h1 class="Exercise3" >{{ plan.exercicio0003 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo2">{{ plan.Musculo02 }}</h1>
+                <h1 class="Exercise4" >{{ plan.exercicio0004 }}</h1>
+                <h1 class="Exercise5" >{{ plan.exercicio0005 }}</h1>
+                <h1 class="Exercise6" >{{ plan.exercicio0006 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo3">{{ plan.Musculo03 }}</h1>
+                <h1 class="Exercise7" >{{ plan.exercicio0007 }}</h1>
+                <h1 class="Exercise8" >{{ plan.exercicio0008 }}</h1>
+                <h1 class="Exercise9" >{{ plan.exercicio0009 }}</h1>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="{% static 'images/tranding-food-1.jpg' %}"  alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="food-price">6ª Feira</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo1">{{ plan.Musculo04 }}</h1>
+                <h1 class="Exercise1" >{{ plan.exercicio00001 }}</h1>
+                <h1 class="Exercise2" >{{ plan.exercicio00002 }}</h1>
+                <h1 class="Exercise3" >{{ plan.exercicio00003 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo2">{{ plan.Musculo05 }}</h1>
+                <h1 class="Exercise4" >{{ plan.exercicio00004 }}</h1>
+                <h1 class="Exercise5" >{{ plan.exercicio00005 }}</h1>
+                <h1 class="Exercise6" >{{ plan.exercicio00006 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo3">{{ plan.Musculo06 }}</h1>
+                <h1 class="Exercise7" >{{ plan.exercicio00007 }}</h1>
+                <h1 class="Exercise8" >{{ plan.exercicio00008 }}</h1>
+                <h1 class="Exercise9" >{{ plan.exercicio00009 }}</h1>
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="{% static 'images/tranding-food-1.jpg' %}"  alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="food-price">Sábado</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo1">{{ plan.Musculo07 }}</h1>
+                <h1 class="Exercise1" >{{ plan.exercicio000001 }}</h1>
+                <h1 class="Exercise2" >{{ plan.exercicio000002 }}</h1>
+                <h1 class="Exercise3" >{{ plan.exercicio000003 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo2">{{ plan.Musculo08 }}</h1>
+                <h1 class="Exercise4" >{{ plan.exercicio000004 }}</h1>
+                <h1 class="Exercise5" >{{ plan.exercicio000005 }}</h1>
+                <h1 class="Exercise6" >{{ plan.exercicio000006 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo3">{{ plan.Musculo09 }}</h1> 
+                <h1 class="Exercise7" >{{ plan.exercicio000005 }}</h1>
+                <h1 class="Exercise8" >{{ plan.exercicio000006 }}</h1>
+                <h1 class="Exercise9" >{{ plan.exercicio000007 }}</h1> 
+              </div>
+            </div>
+            <!-- Slide-end -->
+            <!-- Slide-start -->
+            <div class="swiper-slide tranding-slide">
+              <div class="tranding-slide-img">
+                <img src="{% static 'images/tranding-food-1.jpg' %}" alt="Tranding">
+              </div>
+              <div class="tranding-slide-content">
+                <h1 class="food-price">Domingo</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo1">{{ plan.Musculo001 }}</h1>
+                <h1 class="Exercise1" >{{ plan.exercicio0000001 }}</h1>
+                <h1 class="Exercise2" >{{ plan.exercicio0000002 }}</h1>
+                <h1 class="Exercise3" >{{ plan.exercicio0000003 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo2">{{ plan.Musculo002 }}</h1>
+                <h1 class="Exercise4" >{{ plan.exercicio0000004 }}</h1>
+                <h1 class="Exercise5" >{{ plan.exercicio0000005 }}</h1>
+                <h1 class="Exercise6" >{{ plan.exercicio0000006 }}</h1>
+              </div>
+
+              <div class="tranding-slide-content">
+                <h1 class="musculo3">{{ plan.Musculo003 }}</h1>
+                <h1 class="Exercise7" >{{ plan.exercicio0000007 }}</h1>
+                <h1 class="Exercise8" >{{ plan.exercicio0000008 }}</h1>
+                <h1 class="Exercise9" >{{ plan.exercicio0000009 }}</h1>
+              </div>
+            </div>
+            <!-- Slide-end -->
+          </div>
+
+          <div class="tranding-slider-control">
+            <div class="swiper-button-prev slider-arrow">
+              <ion-icon name="arrow-back-outline"></ion-icon>
+            </div>
+            <div class="swiper-button-next slider-arrow">
+              <ion-icon name="arrow-forward-outline"></ion-icon>
+            </div>
+            <div class="swiper-pagination"></div>
+          </div>
+
+        </div>
+      </div>
+      
+
+    </section>
+    {% endfor %}
+
+    <script type="module" src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
+    <script src="https://unpkg.com/swiper@8/swiper-bundle.min.js"></script>
+    <script src="{% static 'usuarios/java/usuarios.js' %}"></script>
+  </body>
+
+</html>

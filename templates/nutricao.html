@@ -1,0 +1,257 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weekly Diet Plan</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #1e1e3e;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 20px auto;
+            padding: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #3394da;
+        }
+
+        .day-card {
+            background: #23919d;
+            margin: 10px;
+            padding: 20px;
+            border-color: rgb(12, 223, 223);
+            border-width: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .day-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        }
+
+        .day-header {
+            font-size: 1.5em;
+            color: #7fe1f3;
+            margin-bottom: 10px;
+        }
+
+        .meals {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        .meals li {
+            margin: 8px 0;
+            color: #a3b8e5;
+            font-size: 19px;
+            font-weight: 500;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        }
+
+        .day-card:nth-child(odd) {
+            background-color: #18324f;
+        }
+
+        .day-card:nth-child(even) {
+            background-color: #38324f;
+        }
+    </style>
+</head>
+<body>
+
+
+    {% for food in foods %}  
+    <div class="container">
+        <div style="height: 100px;"></div>
+        <h1>Dieta da semana</h1>
+        <div style="height: 70px;"></div>
+        <div>
+            <h1 style="font-size: 22px; max-width:360px;"><span></span></h1>
+        </div>
+        <div class="days">
+            <div class="day-card">
+                <div class="day-header">Segunda</div>
+                <ul class="meals">
+                    <li><span style="color: rgb(208, 153, 230);">Pequeno almoço</span>: {{ food.peqno_almoço }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Almoço</span>: {{ food.almoço }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Lanche</span>: {{ food.lanche }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Jantar</span>: {{ food.jantar }}t</li>
+                </ul>
+            </div>
+            <div class="day-card">
+                <div class="day-header">Terça</div>
+                <ul class="meals">
+                    <li><span style="color: rgb(208, 153, 230);">Pequeno almoço</span>: {{ food.peqno_almoço1 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Almoço</span>: {{ food.almoço1 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Lanche</span>: {{ food.lanche1 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Jantar</span>: {{ food.jantar1 }}t</li>
+                </ul>
+            </div>
+            <div class="day-card">
+                <div class="day-header">Quarta</div>
+                <ul class="meals">
+                    <li><span style="color: rgb(208, 153, 230);">Pequeno almoço</span>: {{ food.peqno_almoço2 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Almoço</span>: {{ food.almoço2 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Lanche</span>: {{ food.lanche2 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Jantar</span>: {{ food.jantar2 }}t</li>
+                </ul>
+            </div>
+            <div class="day-card">
+                <div class="day-header">Quinta</div>
+                <ul class="meals">
+                    <li><span style="color: rgb(208, 153, 230);">Pequeno almoço</span>: {{ food.peqno_almoço3 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Almoço</span>: {{ food.almoço3 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Lanche</span>: {{ food.lanche3 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Jantar</span>: {{ food.jantar3 }}t</li>
+                </ul>
+            </div>
+            <div class="day-card">
+                <div class="day-header">Sexta</div>
+                <ul class="meals">
+                    <li><span style="color: rgb(208, 153, 230);">Pequeno almoço</span>: {{ food.peqno_almoço4 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Almoço</span>: {{ food.almoço4 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Lanche</span>: {{ food.lanche4 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Jantar</span>: {{ food.jantar4 }}t</li>
+                </ul>
+            </div>
+            <div class="day-card">
+                <div class="day-header">Sábado</div>
+                <ul class="meals">
+                    <li><span style="color: rgb(208, 153, 230);">Pequeno almoço</span>: {{ food.peqno_almoço5 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Almoço</span>: {{ food.almoço5 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Lanche</span>: {{ food.lanche5 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Jantar</span>: {{ food.jantar5 }}t</li>
+                </ul>
+            </div>
+            <div class="day-card">
+                <div class="day-header">Domingo</div>
+                <ul class="meals">
+                    <li><span style="color: rgb(208, 153, 230);">Pequeno almoço</span>: {{ food.peqno_almoço6 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Almoço</span>: {{ food.almoço6 }}</li>
+                    <li><span style="color: rgb(208, 153, 230);">Lanche</span>: {{ food.lanche6 }}</li>
+                    <li id="my-div" data-jantar="{{ food.jantar }}" data-almoco="{{ food.almoço6 }}" > <span style="color: rgb(208, 153, 230);">Jantar</span>: {{ food.jantar6 }}t</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+
+    
+        {% for data in datas %}
+        <h1 id="genero" data-idade="{{ data.Idade }}"
+        data-genero="{{ data.Género }}"
+        data-trabalho="{{ data.Trabalho }}"
+        data-horas="{{ data.Horas_de_Trabalho }}"
+        data-actividade="{{ data.Prt_actividade_fis }}"
+        data-peso="{{ data.Peso }}"
+        data-objectivo="{{ data.Objectivo }}"
+        >{{ data.Género }}</h1>
+        {% endfor %}
+
+   
+
+    <script>
+
+        let words = []
+        printer()
+
+
+    const myDiv = document.getElementById("genero");
+
+
+    let ans1 =  myDiv.dataset.genero ;
+    let ans2 =  myDiv.dataset.idade ;
+    let ans3 =  myDiv.dataset.trabalho ;
+    let ans4 =  myDiv.dataset.horas ;
+    let ans5 =  myDiv.dataset.actividade ;
+    let ans6 =  myDiv.dataset.peso ;
+    let ans7 =  myDiv.dataset.objectivo ;
+
+
+    let res1 = Number(ans2)
+    let res4 = Number(ans4)
+    let res6 = Number(ans6)
+    
+    
+
+   console.log(ans1,res1,ans3,res4,ans5,res6,ans7)
+
+   
+   function printer(){
+
+        if (((res1 > 18) && (res1 < 30)) && (ans2 == "masculino" || ans2 == "Masculino") && 
+            (ans3 =="sentado" || ans3 == "Sentado" || ans3 == "Sentada" || ans3 == "sentada") && 
+            (res4 < 12) && (ans5== "sim" || ans5== "Sim") &&
+            (ans7== "manter" || ans7 == "Manter")){
+            
+            var result = Math.trunc((((15.1*res6)+692.2)*1.84))
+            words.push("Você gasta em média " + result.toString() + "kcal por dia")
+            words.push("Para manter o seu peso consuma a mesma quantidade calórica que gasta")
+            }
+   }
+
+   /*if (((res1 > 18) && (res1 < 30)) && (ans2 == "masculino" || ans2 == "Masculino") && 
+        (ans3 =="sentado" || ans3 == "Sentado" || ans3 == "Sentada" || ans3 == "sentada") && 
+        (res4 < 12) && (ans5== "sim" || ans5== "Sim") &&
+        (ans7== "manter" || ans7 == "Manter")){
+        
+        var result = Math.trunc((((15.1*res6)+692.2)*1.84))
+        words.push("Você gasta em média " + result.toString() + "kcal por dia")
+        words.push("Para manter o seu peso consuma a mesma quantidade calórica que gasta")*/
+
+        
+        
+        const dynamicText = document.querySelector("h1 span")
+  
+        // Variables to track the position and deletion status of the word
+        let wordIndex = 0;
+        let charIndex = 0;
+        let isDeleting = false;
+        
+        const typeEffect = () => {
+            const currentWord = words[wordIndex];
+            const currentChar = currentWord.substring(0, charIndex);
+            dynamicText.textContent = currentChar;
+            dynamicText.classList.add("stop-blinking");
+        
+            if (!isDeleting && charIndex < currentWord.length) {
+                // If condition is true, type the next character
+                charIndex++;
+                setTimeout(typeEffect, 150);
+            } else if (isDeleting && charIndex > 0) {
+                // If condition is true, remove the previous character
+                charIndex--;
+                setTimeout(typeEffect, 40);
+            } else {
+                // If word is deleted then switch to the next word
+                isDeleting = !isDeleting;
+                dynamicText.classList.remove("stop-blinking");
+                wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+                setTimeout(typeEffect, 1200);
+            }
+        }
+        
+        typeEffect();
+
+
+
+                
+                    
+    </script>
+        
+            
+        
+
+            
+</body>
+</html>
