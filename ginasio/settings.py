@@ -25,8 +25,8 @@ SECRET_KEY = 'django-insecure-w&%o9%w#*i=v#fifzw!xhrr^0p-ae)ni%e7@fv0e5@*h%^3r31
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["127.0.0.1","localhost", "ginasio.fly.dev"]
-CSRF_TRUSTED_ORIGINS = ["https://ginasio.fly.dev"]
+ALLOWED_HOSTS = ['127.0.0.1','localhost', 'ginasio.onrender.com']
+CSRF_TRUSTED_ORIGINS = ['https://ginasio.onrender.com']
 
 
 
