@@ -102,8 +102,10 @@
         .alert-danger { @apply bg-red-600 }
     </style>
 </head>
-<body hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="{% block class %}{% endblock %}">
+<body style="background-color: rgb(36, 39, 47);" hx-headers='{"X-CSRFToken": "{{ csrf_token }}"}' class="{% block class %}{% endblock %}">
 	
+    
+
     {% include 'includes/messages.html' %}
 
     {% include 'includes/header.html' %}

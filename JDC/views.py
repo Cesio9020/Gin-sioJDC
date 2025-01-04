@@ -2,15 +2,15 @@ from django.shortcuts import render,redirect, get_object_or_404
 from django.urls import reverse
 from django.contrib.auth.decorators import login_required
 from django.contrib.auth import logout
-from allauth.account.utils import send_email_confirmation
 from django.contrib.auth.views import redirect_to_login
 from django.contrib import messages
 from django.http import Http404
 from .forms import ProfileForm,EmailForm
 from django.contrib.auth.models import User, auth
-from .models import Treinos, Alimentacao,Anamnése,ChatGroup
+from .models import Treinos, Alimentacao,Anamnése,ChatGroup, Video
 from django.contrib.auth.decorators import login_required
 from .forms import ChatmessageCreateform
+from django.core.exceptions import ObjectDoesNotExist
 
 
 # Create your views here.
@@ -32,18 +32,25 @@ def treino(request):
     return render(request, 'exercises/user_exercises.html')
 
 
+def calorias(request):
+    datas = Anamnése.objects.filter(user=request.user)
+    return render(request, 'calorias.html', {'datas':datas})
+
 def converter(request):
     return render(request, 'converter.html')
+    
 
 def home(request):
     return render(request, 'home.html')
 
 
-def nutricao(request):
-    return render(request, 'profile.html')
+def alimentos(request):
+    return render(request, 'alimentos.html')
 
 
-
+def video_list(request):
+    videos = Video.objects.all()
+    return render(request, 'video_list.html', {'videos': videos})
 
 
 
@@ -125,55 +132,7 @@ def profile_settings_view(request):
     return render(request, 'a_users/profile_settings.html')
 
 
-@login_required
-def profile_emailchange(request):
-    
-    if request.htmx:
-        form = EmailForm(instance=request.user)
-        return render(request, 'partials/email_form.html', {'form':form})
-    
-    if request.method == 'POST':
-        form = EmailForm(request.POST, instance=request.user)
 
-        if form.is_valid():
-            
-            # Check if the email already exists
-            email = form.cleaned_data['email']
-            if User.objects.filter(email=email).exclude(id=request.user.id).exists():
-                messages.warning(request, f'{email} is already in use.')
-                return redirect('profile-settings')
-            
-            form.save() 
-            
-            # Then Signal updates emailaddress and set verified to False
-            
-            # Then send confirmation email 
-            send_email_confirmation(request, request.user)
-            
-            return redirect('profile-settings')
-        else:
-            messages.warning(request, 'Form not valid')
-            return redirect('profile-settings')
-        
-    return redirect('home')
-
-
-@login_required
-def profile_emailverify(request):
-    send_email_confirmation(request, request.user)
-    return redirect('profile-settings')
-
-
-@login_required
-def profile_delete_view(request):
-    user = request.user
-    if request.method == "POST":
-        logout(request)
-        user.delete()
-        messages.success(request, 'Account deleted, what a pity')
-        return redirect('home')
-    
-    return render(request, 'a_users/profile_delete.html')
 
 
 
@@ -187,7 +146,14 @@ def chat_view(request, chatroom_name='public-chat'):
     chat_messages = chat_group.chat_messages.all()[:30]
     form = ChatmessageCreateform()
 
-    
+    other_user = None
+    if chat_group.is_private:
+        if request.user not in chat_group.members.all():
+            raise Http404()
+        for member in chat_group.members.all():
+            if member != request.user:
+                other_user = member
+                break
  
 
     if request.htmx:
@@ -203,7 +169,42 @@ def chat_view(request, chatroom_name='public-chat'):
             }
             return render(request, 'a_rtchat/partials/chat_message_p.html', context)
      
-   
+    context = {
+        'chat_messages': chat_messages,
+        'form' : form,
+        'other_user' : other_user,
+        'chatroom_name' : chatroom_name, 
+    }
 
-    return render(request,'a_rtchat/chat.html',{'chat_messages': chat_messages, 'form':form})
+    return render(request,'a_rtchat/chat.html', context)
 
+@login_required
+
+
+def get_or_create_chatroom(request, username):
+    if request.user.username == username:
+        return redirect('home')  # Prevent chatting with oneself
+
+    other_user = get_object_or_404(User, username=username)
+
+    # Check for an existing private chatroom
+    chatroom = ChatGroup.objects.filter(is_private=True, members=request.user).filter(members=other_user).first()
+    
+    if not chatroom:
+        # Create a new chatroom if none exists
+        chatroom = ChatGroup.objects.create(
+            group_name=f"chat_{request.user.username}_{username}",
+            is_private=True
+        )
+        chatroom.members.add(request.user, other_user)
+
+    return redirect('chatroom', chatroom.group_name)
+
+#USER´S LIST
+def user_list(request):
+    users = User.objects.exclude(id=request.user.id)  # Exclude the current user
+    return render(request, 'list.html', {'users': users})
+
+def video_list(request):
+    videos = Video.objects.all()
+    return render(request, 'video.html', {'videos': videos})

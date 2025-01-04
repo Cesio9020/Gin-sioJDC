@@ -3,7 +3,7 @@
 
 
 
-let words = [""]
+let words_s = [""]
 returnText()
     
 
@@ -26,7 +26,7 @@ function returnText(){
     
     if (res1 != 0 ){
         var result = Math.trunc(res1*4 + res2*4 + res3*9)
-        words.push("Olá!!, em 100g do seu alimento, estão contidas " + result.toString() +" calorias")
+        words_s.push("Olá!!, em 100g do seu alimento, estão contidas " + result.toString() +" calorias")
     }
 
     
@@ -55,7 +55,7 @@ const dynamicText = document.querySelector("h1 span")
   let isDeleting = false;
   
   const typeEffect = () => {
-      const currentWord = words[wordIndex];
+      const currentWord = words_s[wordIndex];
       const currentChar = currentWord.substring(0, charIndex);
       dynamicText.textContent = currentChar;
       dynamicText.classList.add("stop-blinking");
