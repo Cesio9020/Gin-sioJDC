@@ -29,7 +29,8 @@ def loged(request):
     return render(request, 'loged.html')
 
 def treino(request):
-    return render(request, 'exercises/user_exercises.html')
+    datas = Anamnése.objects.filter(user=request.user)
+    return render(request, 'treino.html', {'datas':datas})
 
 
 def calorias(request):

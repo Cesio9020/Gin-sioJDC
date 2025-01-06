@@ -81,27 +81,6 @@ function returnText(){
 
 
 
-function displayRadioValue() {
-    const ele = document.getElementsByName('select');
-    
-
-    for (i = 0; i < ele.length; i++) {
-        if (ele[i].checked && ele[i].value=="Gamer")
-            words.push("heeeeee")
-
-        else if(ele[i].checked && ele[i].value=="Hoje")
-            words.push("hojeeeeeeeeeeeeee")
-        
-        else if(ele[i].checked)
-        document.getElementById("result").innerHTML
-        = "Gender: " + ele[i].value;
-    }    
-
-}
-
-
-
-
 
 
 

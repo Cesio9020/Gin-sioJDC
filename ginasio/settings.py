@@ -82,22 +82,22 @@ TEMPLATES = [
 
 ASGI_APPLICATION = 'ginasio.asgi.application'
 
-#CHANNEL_LAYERS = {
-#    'default': {
-#       "BACKEND": "channels.layers.InMemoryChannelLayer",
-#      }
-#}
-
-
-
 CHANNEL_LAYERS = {
-   "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-            "CONFIG": {
-                "hosts": [('redis://red-cts3g9tds78s73cd0a60:6379')],
-            },
-    },
+    'default': {
+       "BACKEND": "channels.layers.InMemoryChannelLayer",
+      }
 }
+
+
+
+#CHANNEL_LAYERS = {
+ #  "default": {
+  #      "BACKEND": "channels_redis.core.RedisChannelLayer",
+   #         "CONFIG": {
+    #            "hosts": [('redis://red-cts3g9tds78s73cd0a60:6379')],
+     #       },
+    #},
+#}
 
 
 # Database
@@ -107,14 +107,35 @@ CHANNEL_LAYERS = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
 #        'NAME': BASE_DIR / 'db.sqlite3',
- #   }
+#    }
 #}
 
 
-import dj_database_url
+# Add these at the top of your settings.py
+from os import getenv
+import os
+from urllib.parse import urlparse
+from dotenv import load_dotenv
+
+# Replace the DATABASES section of your settings.py with this
+tmpPostgres = urlparse("postgresql://neondb_owner:AiTSw7EUjsK3@ep-dry-haze-a2hfzorp.eu-central-1.aws.neon.tech/neondb?sslmode=require")
+
 DATABASES = {
-    'default': dj_database_url.parse('postgresql://data_cp6p_user:j0aJnRpRAyOlAyvj0Rg2SiY9gPUwteKA@dpg-cts3et5ds78s73ccvuf0-a.oregon-postgres.render.com/data_cp6p')
+    'default': {
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': tmpPostgres.path.replace('/', ''),
+        'USER': tmpPostgres.username,
+        'PASSWORD': tmpPostgres.password,
+        'HOST': tmpPostgres.hostname,
+        'PORT': 5432,
+    }
 }
+
+
+#import dj_database_url
+#DATABASES = {
+#    'default': dj_database_url.parse('postgresql://data_cp6p_user:j0aJnRpRAyOlAyvj0Rg2SiY9gPUwteKA@dpg-cts3et5ds78s73ccvuf0-a.oregon-postgres.render.com/data_cp6p')
+#}
 
 
 

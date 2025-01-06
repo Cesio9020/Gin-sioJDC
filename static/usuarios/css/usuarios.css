@@ -134,106 +134,123 @@ body {
 
 .tranding-slide-content .food-price {
   position: absolute;
-  top: 0.2rem;
+  top: -2.2rem;
   right: 35%;
   color: aqua;
+  font-weight: 500;
+  font-size: 19px;
 }
 
 .tranding-slide-content .musculo1 {
   position: absolute;
-  top: 4.8rem;
-  right: 55%;
-  color: aqua;
-  font-size: 20px;
+  top: -0.2rem;
+  left: 2%;
+  color: rgb(5, 232, 145);
+  font-size: 17px;
+  font-weight: 500;
 }
 
 .tranding-slide-content .Exercise1 {
   position: absolute;
-  top: 8rem;
-  left: 20%;
+  top: 1.5rem;
+  left: 2%;
   color: aqua;
   font-size: 16px;
+  font-weight: 500;
+  word-spacing: 2px; /* Adds space between broken words */
 }
 
 .tranding-slide-content .Exercise2 {
   position: absolute;
-  top: 10.5rem;
-  left: 20%;
+  top: 5rem;
+  left: 2%;
   color: aqua;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .tranding-slide-content .Exercise3 {
   position: absolute;
-  top: 12.7rem;
-  left: 20%;
+  top: 8.5rem;
+  left: 2%;
   color: aqua;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 
 .tranding-slide-content .Exercise4 {
   position: absolute;
-  top: 17.6rem;
-  left: 20%;
+  top: 14rem;
+  left: 2%;
   color: aqua;
-  font-size: 19px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .tranding-slide-content .Exercise5 {
   position: absolute;
-  top: 19.6rem;
-  left: 20%;
+  top: 17.5rem;
+  left: 2%;
   color: aqua;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .tranding-slide-content .Exercise6 {
   position: absolute;
-  top: 22rem;
-  left: 20%;
+  top: 21rem;
+  left: 2%;
   color: aqua;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 
 .tranding-slide-content .Exercise7 {
   position: absolute;
-  top: 26.4rem;
-  left: 20%;
+  top: 26rem;
+  left: 2%;
   color: aqua;
-  font-size: 19px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .tranding-slide-content .Exercise8 {
   position: absolute;
-  top: 28.5rem;
-  left: 20%;
+  top: 29.5rem;
+  left: 2%;
   color: aqua;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 .tranding-slide-content .Exercise9 {
   position: absolute;
-  top: 31rem;
-  left: 20%;
+  top: 33rem;
+  left: 2%;
   color: aqua;
-  font-size: 20px;
+  font-size: 16px;
+  font-weight: 500;
 }
 
 
 .tranding-slide-content .musculo2 {
   position: absolute;
-  top: 15rem;
-  right: 55%;
-  color: aqua;
+  top: 12rem;
+  left: 2%;
+  color: rgb(5, 232, 145);
+  font-size: 17px;
+  font-weight: 500;
 }
 
 .tranding-slide-content .musculo3 {
   position: absolute;
-  top: 24rem;
-  right: 55%;
-  color: aqua;
+  top: 24.5rem;
+  left: 2%;
+  color: rgb(5, 232, 145);
+  font-size: 17px;
+  font-weight: 500;
 }
 
 
@@ -305,7 +322,8 @@ body {
   width: 3.5rem;
   height: 3.5rem;
   border-radius: 50%;
-  left: 42%;
+  left: 22%;
+  top: 27px;
   transform: translateX(-42%);
   filter: drop-shadow(0px 8px 24px rgba(18, 28, 53, 0.1));
 }
@@ -322,7 +340,7 @@ body {
 .tranding-slider-control .swiper-pagination {
   position: relative;
   width: 15rem;
-  bottom: 1rem;
+  bottom: 0.5rem;
 }
 
 .tranding-slider-control .swiper-pagination .swiper-pagination-bullet {

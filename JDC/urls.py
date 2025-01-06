@@ -14,7 +14,7 @@ urlpatterns = [
     path('nutricao', views.user_diet, name='nutricao') ,
     path('alimentos', views.alimentos, name='alimentos') ,
     path('treino', views.treino, name='treino'),
-    path('user_books', views.user_books, name='user_books'),
+    path('plano', views.user_books, name='plano'),
     path('videos', views.video_list, name='videos'),
 
     path('list', views.user_list, name='list'),

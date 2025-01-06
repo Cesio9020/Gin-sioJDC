@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Signup</title>
+  <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.1.4/dist/tailwind.min.css" rel="stylesheet">
+</head>
+<body class="bg-black h-screen flex flex-col items-center justify-center" ">
+  <div class="w-full max-w-xs px-6">
+    <div class="mb-10 flex flex-col items-center">
+      <h1> <span></span></h1>
+    </div>
+
+
+    <div>
+        <style>
+            h1{
+                color: rgb(241, 227, 227);
+                padding-bottom: 30px;
+                font-size: 20px;}
+                
+        
+                    
+        </style>
+
+        <h1> <span></span></h1>
+
+
+    </div>
+
+
+      
+      <a href="plano">
+        <button type="button"class="bg-green-500 hover:bg-green-600 text-black font-bold py-2 px-4 rounded w-full mb-4">Treino</button>
+      </a>
+      
+      
+      
+      
+      
+    </form>
+
+
+
+
+      {% for data in datas %}
+        <h1 id="genero" data-idade="{{ data.Idade }}"
+        data-genero="{{ data.Género }}"
+        data-trabalho="{{ data.Trabalho }}"
+        data-horas="{{ data.Horas_de_Trabalho }}"
+        data-actividade="{{ data.Prt_actividade_fis }}"
+        data-peso="{{ data.Peso }}"
+        data-objectivo="{{ data.Objectivo }}"
+        data-gordura="{{ data.Percentual_de_gordura }}"
+        data-altura="{{ data.Altura }}"
+        data-visceral="{{ data.Gordura_visceral }}"
+        ></h1>
+      {% endfor %}
+
+
+
+      <script>
+
+
+        const myDiv = document.getElementById("genero");
+
+        let ans1 =  myDiv.dataset.idade ;
+        let ans2 =  myDiv.dataset.genero ;
+        let ans3 =  myDiv.dataset.trabalho ;
+        let ans4 =  myDiv.dataset.horas ;
+        let ans5 =  myDiv.dataset.actividade ;
+        let ans6 =  myDiv.dataset.peso ;
+        let ans7 =  myDiv.dataset.objectivo ;
+        let ans8 =  myDiv.dataset.gordura ;
+        let ans9 =  myDiv.dataset.altura ;
+        let ans10 =  myDiv.dataset.visceral ;
+        let res1 = Number(ans1) // idade
+        let res4 = Number(ans4) // horas de trabalho
+        let res6 = Number(ans6) //peso
+        let res8 = Number(ans8) //gordura
+        let res9 = Number(ans9) // altura
+        let res10 = Number(ans10)// visceral
+
+
+        let words = [""]
+        returnText()
+
+
+
+        function returnText(){
+
+
+            if( res6/(res9*res9*0.01*0.01) < 18 ){
+                words.push("Está a baixo do peso ideal.")
+            }
+            if( (res6/(res9*res9*0.01*0.01) >= 25)  &&   res6/(res9*res9*0.01*0.01) <= 29 ){
+                words.push("Está a cima do peso ideal.")
+            }
+            if( (res6/(res9*res9*0.01*0.01) >= 30)  && res6/(res9*res9*0.01*0.01) <= 29 ){
+                 words.push("Está a cima do peso ideal.")
+            }  
+            if( (res6/(res9*res9*0.01*0.01) >= 35) &&  res6/(res9*res9*0.01*0.01) <= 39 ){
+                words.push("Obeso de grau II perca, peso")
+            }
+            if( res6/(res9*res9*0.01*0.01) >= (40)   ){
+                words.push("Obesidade morbida, consulte um medico")
+            }
+
+
+            if( (res8 > 22) ){
+                words.push("Foque em exercicios de perda de peso, o seu % de gordura esta alta")
+            }
+
+
+            if( (res10 > 13) ){
+                words.push("Foque em exercicios de perda de peso com foco na area visceral")
+            } 
+
+        }
+       
+
+
+        const dynamicText = document.querySelector("h1 span")
+  
+  // Variables to track the position and deletion status of the word
+  let wordIndex = 0;
+  let charIndex = 0;
+  let isDeleting = false;
+  
+  const typeEffect = () => {
+      const currentWord = words[wordIndex];
+      const currentChar = currentWord.substring(0, charIndex);
+      dynamicText.textContent = currentChar;
+      dynamicText.classList.add("stop-blinking");
+  
+      if (!isDeleting && charIndex < currentWord.length) {
+          // If condition is true, type the next character
+          charIndex++;
+          setTimeout(typeEffect, 150);
+      } else if (isDeleting && charIndex > 0) {
+          // If condition is true, remove the previous character
+          charIndex--;
+          setTimeout(typeEffect, 40);
+      } else {
+          // If word is deleted then switch to the next word
+          isDeleting = !isDeleting;
+          dynamicText.classList.remove("stop-blinking");
+          wordIndex = !isDeleting ? (wordIndex + 1) % words.length : wordIndex;
+          setTimeout(typeEffect, 1200);
+      }
+  }
+  
+  typeEffect();
+
+
+
+
+      </script>
+
+
+    
+
+    <p class="text-center text-gray-500 text-xs mt-4">
+      &copy; JDC
+    </p>
+  </div>
+</body>
+</html>
