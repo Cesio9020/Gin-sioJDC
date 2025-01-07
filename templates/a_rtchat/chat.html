@@ -38,7 +38,7 @@
 
         <div class="sticky bottom-0 z-9 p-0 bg-gray-800 h-[6rem] " style="position: fixed; right: 0%; left: 0%; " >
             <div class="flex items-center rounded-xl px-2 py2" id="responsiveDiv" style="position: relative; right:2%;top: 20%;  ">
-                <form id="chat_message_form" class="w-full" style="font-size: 20px; position: relative; left: 3%; width: 82%;; "
+                <form id="chat_message_form" class="w-full" style="font-size: 20px; position: relative; left: 3%; width: 82%;" onsubmit="handleSubmit(event)"
                 hx-ext="ws"
                 ws-connect="/ws/chatroom/{{ chatroom_name }}"
                 hx-trigger="submit" 
@@ -50,9 +50,7 @@
                 {{form}}
                
                 <button  type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                style="position: absolute;right: -25%;top: 0; height: 60px; z-index: 100;"
-                ws-send
-                _="on htmx:wsAfterSend reset() me">
+                style="position: absolute;right: -25%;top: 0; height: 60px; z-index: 100;">
                     <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
                     <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
                     </svg>
@@ -81,7 +79,8 @@
 
 {% block javascript %}
 <script>
-    const observer = new MutationObserver(() => {
+
+const observer = new MutationObserver(() => {
         window.scrollTo({
             top: document.body.scrollHeight,
             behavior: 'smooth' // Smooth scrolling effect
@@ -92,18 +91,12 @@
     observer.observe(document.body, { childList: true, subtree: true });
 
 
-    function keepFocus(event) {
-            // Prevent default form submission behavior
-            event.preventDefault();
-            
-            // Send the HTMX request
-            htmx.trigger(event.target, "submit");
-
-            // Keep focus on the input field
-            const input = document.getElementById('messageInput');
-            setTimeout(() => input.focus(), 0);
-        }
-
+    function handleSubmit(event) {
+    event.preventDefault();
+    // Add your submit logic here
+    console.log('Form submitted without closing the keyboard');
+  }
+   
 
 
 

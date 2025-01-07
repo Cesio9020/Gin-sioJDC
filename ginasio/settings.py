@@ -82,22 +82,22 @@ TEMPLATES = [
 
 ASGI_APPLICATION = 'ginasio.asgi.application'
 
-#CHANNEL_LAYERS = {
-#   'default': {
- #      "BACKEND": "channels.layers.InMemoryChannelLayer",
- #     }
-#}
-
-
-
 CHANNEL_LAYERS = {
-   "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-            "CONFIG": {
-                "hosts": [('redis://red-cts3g9tds78s73cd0a60:6379')],
-            },
-    },
+   'default': {
+      "BACKEND": "channels.layers.InMemoryChannelLayer",
+      }
 }
+
+
+
+#CHANNEL_LAYERS = {
+ #  "default": {
+  #      "BACKEND": "channels_redis.core.RedisChannelLayer",
+   #         "CONFIG": {
+    #            "hosts": [('redis://red-cts3g9tds78s73cd0a60:6379')],
+     #       },
+    #},
+#}
 
 
 # Database
