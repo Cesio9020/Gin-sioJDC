@@ -33,9 +33,6 @@
         </div>
 
 
-       
-
-
         <div class="sticky bottom-0 z-9 p-0 bg-gray-800 h-[6rem] " style="position: fixed; right: 0%; left: 0%; " >
             <div class="flex items-center rounded-xl px-2 py2" id="responsiveDiv" style="position: relative; right:2%;top: 20%;  ">
                 <form id="chat_message_form" class="w-full" style="font-size: 20px; position: relative; left: 3%; width: 82%;" onsubmit="handleSubmit(event)"
@@ -97,6 +94,28 @@ const observer = new MutationObserver(() => {
     console.log('Form submitted without closing the keyboard');
   }
    
+
+
+  function keepFocus(event) {
+    event.preventDefault(); // Prevent default form submission behavior
+
+    // Refocus the input field to keep the keyboard open
+    const inputField = document.querySelector('#chat_message_form input[type="text"]');
+    if (inputField) {
+        setTimeout(() => inputField.focus(), 0);
+    }
+
+    // Optionally send the form using HTMX
+    htmx.trigger("#chat_message_form", "submit");
+}
+
+// Add event listener to ensure keyboard stays open
+    document.addEventListener("DOMContentLoaded", () => {
+        const chatForm = document.getElementById('chat_message_form');
+        if (chatForm) {
+            chatForm.addEventListener('submit', keepFocus);
+        }
+    });
 
 
 
