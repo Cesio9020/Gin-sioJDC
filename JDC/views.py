@@ -141,7 +141,11 @@ def profile_settings_view(request):
 """
 Chat views
 """
+from django.utils.timezone import now
+from datetime import timedelta
+
 @login_required
+
 def chat_view(request, chatroom_name='public-chat'):
     chat_group = get_object_or_404(ChatGroup, group_name=chatroom_name)
     chat_messages = chat_group.chat_messages.all()[:30]
@@ -155,29 +159,38 @@ def chat_view(request, chatroom_name='public-chat'):
             if member != request.user:
                 other_user = member
                 break
- 
 
     if request.htmx:
         form = ChatmessageCreateform(request.POST)
-        if form.is_valid:
-            message = form.save(commit=False)
-            message.author = request.user
-            message.group = chat_group
-            message.save()
-            context = {
-                'message' : message,
-                'user' : request.user
-            }
-            return render(request, 'a_rtchat/partials/chat_message_p.html', context)
-     
+        if form.is_valid():
+            # Safeguard to prevent duplicate message submissions
+            recent_time_threshold = now() - timedelta(seconds=5)  # Adjust threshold as needed
+            recent_messages = chat_group.chat_messages.filter(
+                author=request.user,
+                created_at__gte=recent_time_threshold
+            )
+            if not recent_messages.exists():
+                # Save only if there are no recent messages from the same user
+                message = form.save(commit=False)
+                message.author = request.user
+                message.group = chat_group
+                message.save()
+                context = {
+                    'message': message,
+                    'user': request.user
+                }
+                return render(request, 'a_rtchat/partials/chat_message_p.html', context)
+
+            # Do nothing if there are recent messages
+
     context = {
         'chat_messages': chat_messages,
-        'form' : form,
-        'other_user' : other_user,
-        'chatroom_name' : chatroom_name, 
+        'form': form,
+        'other_user': other_user,
+        'chatroom_name': chatroom_name,
     }
 
-    return render(request,'a_rtchat/chat.html', context)
+    return render(request, 'a_rtchat/chat.html', context)
 
 @login_required
 
