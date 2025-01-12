@@ -98,7 +98,6 @@ def user_diet(request):
 """
 Profile views
 """
-
 def profile_view(request, username=None):
     if username:
         profile = get_object_or_404(User, username=username).profile
@@ -108,7 +107,6 @@ def profile_view(request, username=None):
         except:
             return redirect_to_login(request.get_full_path())
     return render(request, 'a_users/profile.html', {'profile':profile})
-
 
 @login_required
 def profile_edit_view(request):

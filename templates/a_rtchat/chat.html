@@ -64,9 +64,6 @@
 
 
 
-
-            
-
         </div>
     </div>
 </wrapper>
@@ -88,12 +85,6 @@ const observer = new MutationObserver(() => {
     observer.observe(document.body, { childList: true, subtree: true });
 
 
-    function handleSubmit(event) {
-    event.preventDefault();
-    // Add your submit logic here
-    console.log('Form submitted without closing the keyboard');
-  }
-   
 
 
   function keepFocus(event) {
