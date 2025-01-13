@@ -118,24 +118,24 @@ from urllib.parse import urlparse
 from dotenv import load_dotenv
 
 # Replace the DATABASES section of your settings.py with this
-tmpPostgres = urlparse("postgresql://neondb_owner:AiTSw7EUjsK3@ep-dry-haze-a2hfzorp.eu-central-1.aws.neon.tech/neondb?sslmode=require")
+#tmpPostgres = urlparse("postgresql://neondb_owner:AiTSw7EUjsK3@ep-dry-haze-a2hfzorp.eu-central-1.aws.neon.tech/neondb?sslmode=require")
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': tmpPostgres.path.replace('/', ''),
-        'USER': tmpPostgres.username,
-        'PASSWORD': tmpPostgres.password,
-        'HOST': tmpPostgres.hostname,
-        'PORT': 5432,
-    }
-}
-
-
-#import dj_database_url
 #DATABASES = {
-#    'default': dj_database_url.parse('postgresql://data_cp6p_user:j0aJnRpRAyOlAyvj0Rg2SiY9gPUwteKA@dpg-cts3et5ds78s73ccvuf0-a.oregon-postgres.render.com/data_cp6p')
+#    'default': {
+ #       'ENGINE': 'django.db.backends.postgresql',
+  #      'NAME': tmpPostgres.path.replace('/', ''),
+   #     'USER': tmpPostgres.username,
+    #    'PASSWORD': tmpPostgres.password,
+     #   'HOST': tmpPostgres.hostname,
+      #  'PORT': 5432,
+    #}
 #}
+
+
+import dj_database_url
+DATABASES = {
+    'default': dj_database_url.parse('postgresql://data_hymd_user:SNzYs2PlBODoNkNYGa04DcwEsnZ37bBI@dpg-cu29htaj1k6c73ch0s50-a.oregon-postgres.render.com/data_hymd')
+}
 
 
 

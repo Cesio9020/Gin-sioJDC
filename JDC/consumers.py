@@ -52,27 +52,23 @@ class ChatroomConsumer(WebsocketConsumer):
             text_data_json = json.loads(text_data)
             body = text_data_json.get('body', '').strip()
 
-            # Validate body content
+            # Ignore empty messages
             if not body:
-                logger.warning("Empty message received; ignoring.")
                 return
 
-            # Prevent duplicate messages sent in rapid succession
+            # Prevent duplicate messages by checking for recent similar entries
             recent_time_threshold = now() - timedelta(seconds=3)
             if GroupMessage.objects.filter(
                 body=body, author=self.user, group=self.chatroom, created__gte=recent_time_threshold
             ).exists():
-                logger.warning("Duplicate message detected; ignoring.")
                 return
 
-            # Create and save the message
+            # Create and broadcast the message
             message = GroupMessage.objects.create(
                 body=body,
                 author=self.user,
                 group=self.chatroom
             )
-
-            # Broadcast the message to the group
             event = {
                 'type': 'message_handler',
                 'message_id': message.id,
@@ -80,11 +76,9 @@ class ChatroomConsumer(WebsocketConsumer):
             async_to_sync(self.channel_layer.group_send)(
                 self.chatroom_group_name, event
             )
-
-            logger.info(f"Message sent by {self.user}: {body}")
-
         except Exception as e:
-            logger.error(f"Error processing message: {str(e)}")
+            logger.error(f"Error in receive method: {str(e)}")
+
 
     def message_handler(self, event):
         try:
@@ -102,6 +96,10 @@ class ChatroomConsumer(WebsocketConsumer):
 
         except Exception as e:
             logger.error(f"Error in message_handler: {str(e)}")
+
+
+
+
 
     def update_online_count(self):
         try:
@@ -123,6 +121,10 @@ class ChatroomConsumer(WebsocketConsumer):
             self.send(text_data=html)
         except Exception as e:
             logger.error(f"Error in online_count_handler: {str(e)}")
+
+
+
+
 
     @staticmethod
     def sanitize_group_name(name):

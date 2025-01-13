@@ -33,38 +33,85 @@
         </div>
 
 
-        <div class="sticky bottom-0 z-9 p-0 bg-gray-800 h-[6rem] " style="position: fixed; right: 0%; left: 0%; " >
-            <div class="flex items-center rounded-xl px-2 py2" id="responsiveDiv" style="position: relative; right:2%;top: 20%;  ">
-                <form id="chat_message_form" class="w-full" style="font-size: 20px; position: relative; left: 3%; width: 82%;" onsubmit="handleSubmit(event)"
-                hx-ext="ws"
-                ws-connect="/ws/chatroom/{{ chatroom_name }}"
-                hx-trigger="submit" 
-                hx-swap="none"
-                onsubmit="keepFocus(event)"
-                ws-send
-                _="on htmx:wsAfterSend reset() me" >
-                {% csrf_token%}
-                {{form}}
-               
-                <button  type="submit" class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-2.5 text-center inline-flex items-center me-2 dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800"
-                style="position: absolute;right: -25%;top: 0; height: 60px; z-index: 100;">
-                    <svg class="w-4 h-4" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
-                    <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
-                    </svg>
-                    <span class="sr-only">Icon description</span>
+        <div class="sticky bottom-0 z-9 p-0 bg-gray-800 h-[6rem]" style="position: fixed; right: 0; left: 0;">
+            <div class="flex items-center justify-between rounded-xl px-4 py-2" id="responsiveDiv" style="position: relative; top: 10%;">
+                <form id="chat_message_form" class="w-full flex items-center gap-2" 
+                      style="font-size: 1rem;" 
+                      onsubmit="handleSubmit(event)"
+                      hx-ext="ws"
+                      ws-connect="/ws/chatroom/{{ chatroom_name }}"
+                      hx-trigger="submit"
+                      hx-swap="none"
+                      onsubmit="keepFocus(event)"
+                      ws-send
+                      _="on htmx:wsAfterSend reset() me">
+                    {% csrf_token %}
+                    
+                    <!-- Chat Input -->
+                    <div class="flex-1">
+                        {{ form }}
+                    </div>
+                    
+                    <!-- Submit Button -->
+                    <button type="submit" 
+                            class="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-full text-sm p-3 inline-flex items-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800">
+                        <svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 14 10">
+                            <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 5h12m0 0L9 1m4 4L9 9"/>
+                        </svg>
+                        <span class="sr-only">Send</span>
                     </button>
-    
-                
                 </form>
-        
-        
-
             </div>
+        </div>
+        
+        <style>
+            /* Ensure the container adjusts well */
+            #responsiveDiv {
+                width: 100%;
+                max-width: 1200px;
+                margin: 0 auto;
+            }
+        
+            /* Adjust height and padding on smaller screens */
+            @media (max-width: 768px) {
+                .sticky {
+                    height: auto;
+                    padding: 0.5rem 1rem;
+                }
+        
+                form {
+                    font-size: 0.9rem;
+                }
+        
 
+            }
+        
+            @media (max-width: 480px) {
+                #responsiveDiv {
+                    flex-direction: column;
+                    gap: 1rem;
+                }
+        
+                form {
+                    align-items: stretch;
+                }
+                button {
+                       position: relative;
+                        margin-left: 10px;
+                        justify-content: center;
+                    }
+        
+            }
+        </style>
+        
 
 
 
         </div>
+
+
+
+
     </div>
 </wrapper>
 
@@ -108,6 +155,41 @@ const observer = new MutationObserver(() => {
         }
     });
 
+
+
+
+
+
+
+
+
+// Loop prevent.
+
+let canSendMessage = true;
+let lastSentMessage = ""; // Store the last sent message
+
+function sendMessage(message) {
+    if (canSendMessage) {
+        // Check if the new message is the same as the last one
+        if (message === lastSentMessage) {
+            console.log("Duplicate message detected. Please send a different message.");
+            return; // Prevent sending the same message again
+        }
+
+        canSendMessage = false;
+        lastSentMessage = message; // Store the current message as the last sent one
+
+        // Send the message to WebSocket
+        chatSocket.send(JSON.stringify({ type: "chat_message", body: message }));
+
+        // Reset the throttle after a set period (e.g., 2 seconds)
+        setTimeout(() => {
+            canSendMessage = true;
+        }, 2000); // Allow message every 2 seconds
+    } else {
+        console.log("Too many messages sent in a short time. Please wait.");
+    }
+}
 
 
 
