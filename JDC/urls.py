@@ -20,7 +20,9 @@ urlpatterns = [
     path('list', views.user_list, name='list'),
 
 
-    path('home', views.chat_view, name='home'),
+
+
+    path('home/', views.chat_view, name='home'),
     path('chat/<username>', views.get_or_create_chatroom, name="start-chat"),
     path('chat/room/<chatroom_name>', views.chat_view, name="chatroom"),
 

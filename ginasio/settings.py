@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth',
     'allauth.account',
     'django_htmx',
+    'rest_framework',
 ]
 
 MIDDLEWARE = [
@@ -82,33 +83,33 @@ TEMPLATES = [
 
 ASGI_APPLICATION = 'ginasio.asgi.application'
 
-#CHANNEL_LAYERS = {
- #  'default': {
-  #    "BACKEND": "channels.layers.InMemoryChannelLayer",
-   #   }
-#}
-
-
-
 CHANNEL_LAYERS = {
-   "default": {
-        "BACKEND": "channels_redis.core.RedisChannelLayer",
-            "CONFIG": {
-                "hosts": [('redis://red-cts3g9tds78s73cd0a60:6379')],
-            },
-    },
+   'default': {
+      "BACKEND": "channels.layers.InMemoryChannelLayer",
+      }
 }
+
+
+
+#CHANNEL_LAYERS = {
+ #  "default": {
+  #      "BACKEND": "channels_redis.core.RedisChannelLayer",
+    #         "CONFIG": {
+     #           "hosts": [('redis://red-cts3g9tds78s73cd0a60:6379')],
+      #      },
+    #},
+#}
 
 
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
+    }
+}
 
 
 # Add these at the top of your settings.py
@@ -132,10 +133,10 @@ from dotenv import load_dotenv
 #}
 
 
-import dj_database_url
-DATABASES = {
-    'default': dj_database_url.parse('postgresql://data_hymd_user:SNzYs2PlBODoNkNYGa04DcwEsnZ37bBI@dpg-cu29htaj1k6c73ch0s50-a.oregon-postgres.render.com/data_hymd')
-}
+#import dj_database_url
+#DATABASES = {
+ #   'default': dj_database_url.parse('postgresql://data_hymd_user:SNzYs2PlBODoNkNYGa04DcwEsnZ37bBI@dpg-cu29htaj1k6c73ch0s50-a.oregon-postgres.render.com/data_hymd')
+#}
 
 
 

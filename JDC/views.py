@@ -8,9 +8,12 @@ from django.http import Http404
 from .forms import ProfileForm,EmailForm
 from django.contrib.auth.models import User, auth
 from .models import Treinos, Alimentacao,Anamnése,ChatGroup, Video
-from django.contrib.auth.decorators import login_required
 from .forms import ChatmessageCreateform
 from django.core.exceptions import ObjectDoesNotExist
+from django.utils.timezone import now
+from datetime import timedelta
+from django.shortcuts import render
+
 
 
 # Create your views here.
@@ -76,13 +79,16 @@ def login(request):
 
 
 
-from django.shortcuts import render
-from .models import Treinos, Alimentacao,Anamnése
-from django.contrib.auth.decorators import login_required
 
 @login_required
 def user_books(request):
-    plans = Treinos.objects.filter(user=request.user)
+    plans = (
+        Treinos.objects
+        .filter(user=request.user)
+        .prefetch_related('dias__grupos__exercicios')
+        .order_by('-criado_em')
+    )
+
     return render(request, 'usuarios/plano.html', {'plans': plans})
 
 
@@ -139,8 +145,6 @@ def profile_settings_view(request):
 """
 Chat views
 """
-from django.utils.timezone import now
-from datetime import timedelta
 
 @login_required
 
@@ -220,3 +224,53 @@ def user_list(request):
 def video_list(request):
     videos = Video.objects.all()
     return render(request, 'video.html', {'videos': videos})
+
+
+"""
+
+from rest_framework.response import Response
+from rest_framework import status 
+from rest_framework.decorators import api_view
+from .serializer import AnamneseSerializer
+from django.shortcuts import get_object_or_404
+
+@api_view(['GET', 'PUT', 'DELETE', 'POST'])
+def anamnese(request, username = None):
+    
+    if username:
+        anamnese = get_object_or_404(Anamnése, user__username = username)
+
+        if request.method == 'GET':
+            serializer = AnamneseSerializer(anamnese)
+            return Response(serializer.data)
+        
+        if request.method == 'PUT':
+            serializer = AnamneseSerializer(anamnese, data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            return Response({"error":"Invalid request"}, status=400)
+        
+        if request.method == 'DELETE':
+            anamnese.delete()
+            return Response({"error":"No content available"}, status=400)
+        
+        if request.method == 'POST':
+            serializer = AnamneseSerializer(data = request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data)
+            else:
+                return Response({"error":"Invalid request"}, status=400)
+
+        
+    return Response({"error":"Invalid request"}, status=400)
+
+
+
+@api_view(['GET'])
+def analist(request):
+    anamneses = Anamnése.objects.all()
+    serializer = AnamneseSerializer(anamneses, many = True)
+    return Response(serializer.data)
+"""

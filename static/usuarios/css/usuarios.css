@@ -1,4 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap");
+
 *,
 *::before,
 *::after {
@@ -74,7 +75,7 @@ body {
 
 .section-heading {
   font-size: 3rem;
-  color: var(--primary);
+  color: rgb(130, 190, 186);
   padding: 2rem 0;
 }
 
@@ -82,7 +83,7 @@ body {
   padding: 4rem 0;
 }
 
-@media (max-width:1440px) {
+@media (max-width: 1440px) {
   #tranding {
     padding: 7rem 0;
   }
@@ -94,7 +95,7 @@ body {
   position: relative;
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   #tranding .tranding-slider {
     height: 45rem;
   }
@@ -106,11 +107,12 @@ body {
   position: relative;
 }
 
-@media (max-width:500px) {
+@media (max-width: 500px) {
   .tranding-slide {
     width: 28rem !important;
     height: 36rem !important;
   }
+
   .tranding-slide .tranding-slide-img img {
     width: 28rem !important;
     height: 36rem !important;
@@ -126,10 +128,7 @@ body {
 
 .tranding-slide .tranding-slide-content {
   position: absolute;
-  left: 0;
-  top: 0;
-  right: 0;
-  bottom: 0;
+  inset: 0;
 }
 
 .tranding-slide-content .food-price {
@@ -141,134 +140,41 @@ body {
   font-size: 19px;
 }
 
-.tranding-slide-content .musculo1 {
+.muscle-group {
   position: absolute;
+  left: 2%;
+  width: 92%;
+  color: aqua;
+}
+
+.muscle-group-1 {
   top: -0.2rem;
-  left: 2%;
-  color: rgb(5, 232, 145);
-  font-size: 17px;
-  font-weight: 500;
 }
 
-.tranding-slide-content .Exercise1 {
-  position: absolute;
-  top: 1.5rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-  word-spacing: 2px; /* Adds space between broken words */
-}
-
-.tranding-slide-content .Exercise2 {
-  position: absolute;
-  top: 5rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.tranding-slide-content .Exercise3 {
-  position: absolute;
-  top: 8.5rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-
-.tranding-slide-content .Exercise4 {
-  position: absolute;
-  top: 14rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.tranding-slide-content .Exercise5 {
-  position: absolute;
-  top: 17.5rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.tranding-slide-content .Exercise6 {
-  position: absolute;
-  top: 21rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-
-.tranding-slide-content .Exercise7 {
-  position: absolute;
-  top: 26rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.tranding-slide-content .Exercise8 {
-  position: absolute;
-  top: 29.5rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-.tranding-slide-content .Exercise9 {
-  position: absolute;
-  top: 33rem;
-  left: 2%;
-  color: aqua;
-  font-size: 16px;
-  font-weight: 500;
-}
-
-
-.tranding-slide-content .musculo2 {
-  position: absolute;
+.muscle-group-2 {
   top: 12rem;
-  left: 2%;
-  color: rgb(5, 232, 145);
-  font-size: 17px;
-  font-weight: 500;
 }
 
-.tranding-slide-content .musculo3 {
-  position: absolute;
+.muscle-group-3 {
   top: 24.5rem;
-  left: 2%;
+}
+
+.musculo {
   color: rgb(5, 232, 145);
   font-size: 17px;
   font-weight: 500;
+  margin-bottom: 0.8rem;
 }
 
-
-.tranding-slide-content .tranding-slide-content-bottom {
-  position: absolute;
-  bottom: 2rem;
-  left: 2rem;
-  color: var(--white);
-}
-
-.food-rating {
-  padding-top: 1rem;
-  display: flex;
-  gap: 1rem;
-}
-
-.rating ion-icon {
-  color: var(--primary);
+.exercise {
+  color: aqua;
+  font-size: 16px;
+  font-weight: 500;
+  margin-bottom: 1.1rem;
+  word-spacing: 2px;
+  line-height: 1.3;
+  max-width: 90%;
+  word-break: break-word;
 }
 
 .swiper-slide-shadow-left,
@@ -289,28 +195,28 @@ body {
   transform: translateX(-58%) !important;
 }
 
-@media (max-width:990px) {
+@media (max-width: 990px) {
   .tranding-slider-control .swiper-button-next {
     left: 70% !important;
     transform: translateX(-70%) !important;
   }
 }
 
-@media (max-width:450px) {
+@media (max-width: 450px) {
   .tranding-slider-control .swiper-button-next {
     left: 80% !important;
     transform: translateX(-80%) !important;
   }
 }
 
-@media (max-width:990px) {
+@media (max-width: 990px) {
   .tranding-slider-control .swiper-button-prev {
     left: 30% !important;
     transform: translateX(-30%) !important;
   }
 }
 
-@media (max-width:450px) {
+@media (max-width: 450px) {
   .tranding-slider-control .swiper-button-prev {
     left: 20% !important;
     transform: translateX(-20%) !important;
@@ -351,7 +257,11 @@ body {
   background: rgb(46, 99, 212);
 }
 
-
+.empty-state {
+  text-align: center;
+  color: white;
+  padding: 4rem 0;
+}
 
 .dropbtn {
   background-color: #3498DB;
@@ -363,7 +273,8 @@ body {
   top: 100px;
 }
 
-.dropbtn:hover, .dropbtn:focus {
+.dropbtn:hover,
+.dropbtn:focus {
   background-color: #2980B9;
 }
 
@@ -378,7 +289,7 @@ body {
   background-color: #f1f1f1;
   min-width: 160px;
   overflow: auto;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 30;
 }
 
@@ -389,6 +300,14 @@ body {
   display: block;
 }
 
-.dropdown a:hover {background-color: #ddd;}
+.dropdown a:hover {
+  background-color: #ddd;
+}
 
-.show {display: block;}
+.show {
+  display: block;
+}
+
+.musculo {
+  color: rgb(5, 232, 145) !important;
+}

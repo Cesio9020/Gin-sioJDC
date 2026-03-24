@@ -10,10 +10,6 @@ console.log("hey budy")
 function returnCalories(){
    
 
-
-    
-    
-    
     //Calories burned daily
     // 18 - 30  (Mulher activa)
 
@@ -485,16 +481,7 @@ function returnCalories(){
 
 
 
-   /* if (((res1 > 18) && (res1 < 30)) && (ans2 == "masculino" || ans2 == "Masculino") && 
-        (ans3 =="sentado" || ans3 == "Sentado" || ans3 == "Sentada" || ans3 == "sentada") && 
-        (res4 < 12) && (ans5== "sim" || ans5== "Sim")){
-        
-        var result = Math.trunc((((15.1*res6)+692.2)*1.84))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-
-    }*/
-   //777777777777
-
+  
    
     //Manter o peso
     if (((res1 > 18) && (res1 < 30)) && (ans2 == "masculino" || ans2 == "Masculino") && 
@@ -532,13 +519,6 @@ function returnCalories(){
 
 
 
-    /*if (((res1 > 18) && (res1 < 30)) && (ans2 == "masculino" || ans2 == "Masculino")  && 
-        (ans3 =="sentado" || ans3 == "Sentado" || ans3 == "Sentada" || ans3 == "sentada") && 
-        (res4 < 12) && (ans5== "nao" || ans5== "Nao" || ans5== "Não" || ans5== "não"))
-        {
-        var result = Math.trunc((((15.1*res6)+692.2)*1.55))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
 
 
 
@@ -578,15 +558,8 @@ function returnCalories(){
     words.push("Para perder peso consuma em média " + result1.toString() + "kcal por dia")
    }
 
-   /*
+   
 
-    if (((res1 > 18) && (res1 < 30)) && (ans2 == "masculino" || ans2 == "Masculino")  && 
-        (ans3 =="fisico" || ans3 == "Fisico" || ans3 == "Físico" || ans3 == "físico") && 
-        (res4 < 12) && (ans5== "sim" || ans5== "Sim"))
-        {
-        var result = Math.trunc((((15.1*res6)+692.2)*2.2))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
 
 
  // Manter peso 
@@ -626,13 +599,7 @@ function returnCalories(){
    }
 
 
-    /*if (((res1 > 18) && (res1 < 30)) && (ans2 == "masculino" || ans2 == "Masculino") && 
-        (ans3 =="fisico" || ans3 == "Fisico" || ans3 == "Físico" || ans3 == "físico") && 
-        (res4 < 12) && (ans5== "nao" || ans5== "Nao" || ans5== "Não" || ans5== "não"))
-        {
-        var result = Math.trunc((((15.1*res6)+692.2)*1.9))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
+   
 
 
 
@@ -673,13 +640,7 @@ function returnCalories(){
    }
 
 
-    /*if (((res1 > 30) && (res1 < 60)) && (ans2 == "masculino" || ans2 == "Masculino") && 
-        (ans3 =="sentado" || ans3 == "Sentado" || ans3 == "Sentada" || ans3 == "sentada") && 
-        (res4 < 12) && (ans5== "sim" || ans5== "Sim")){
-        
-        var result = Math.trunc((((11.5*res6)+873.1)*1.84))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
+   
 
 
 
@@ -716,14 +677,7 @@ function returnCalories(){
         words.push("Para perder peso consuma em média " + result1.toString() + "kcal por dia")
     }
 
-/*
-    if (((res1 > 30) && (res1 < 60)) && (ans2 == "masculino" || ans2 == "Masculino") && 
-        (ans3 =="sentado" || ans3 == "Sentado" || ans3 == "Sentada" || ans3 == "sentada") && 
-        (res4 < 12) && (ans5== "nao" || ans5== "Nao" || ans5== "Não" || ans5== "não"))
-        {
-            var result = Math.trunc((((11.5*res6)+873.1)*1.55))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
+
 
     // Manter peso
     if (((res1 >= 30) && (res1 < 60)) && (ans2 == "masculino" || ans2 == "Masculino") && 
@@ -759,13 +713,7 @@ function returnCalories(){
    }
 
 
-    /*if (((res1 > 30) && (res1 < 60)) && ((ans2 == "masculino" || ans2 == "Masculino")) && 
-        (ans3 =="fisico" || ans3 == "Fisico" || ans3 == "Físico" || ans3 == "físico") && 
-        (res4 < 12) && (ans5== "sim" || ans5== "Sim"))
-        {
-        var result = Math.trunc((((11.5*res6)+873.1)*2.2))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
+    
 
 
 
@@ -805,13 +753,7 @@ function returnCalories(){
    }
     
 
-    /*if (((res1 > 30) && (res1 < 60)) && (ans2 == "masculino" || ans2 == "Masculino") && 
-        (ans3 =="fisico" || ans3 == "Fisico" || ans3 == "Físico" || ans3 == "físico") && 
-        (res4 < 12) && (ans5== "nao" || ans5== "Nao" || ans5== "Não" || ans5== "não"))
-        {
-        var result = Math.trunc((((11.5*res6)+873.1)*1.9))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
+ 
 
     //Homem a cima dos 60
 
@@ -850,13 +792,6 @@ function returnCalories(){
 
 
 
-    /*if (((res1 >= 60)) && (ans2 == "masculino" || ans2 == "Masculino")  && 
-        (ans3 =="sentado" || ans3 == "Sentado" || ans3 == "Sentada" || ans3 == "sentada") && 
-        (res4 < 12) && (ans5== "sim" || ans5== "Sim")){
-        
-        var result = Math.trunc((((11.71*res6)+587.7)*1.84))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
 
     // Manter o peso
     if (((res1 >= 60)) && (ans2 == "masculino" || ans2 == "Masculino") && 
@@ -892,15 +827,6 @@ function returnCalories(){
     }
 
 
-
-    /*if (((res1 >= 60)) && (ans2 == "masculino" || ans2 == "Masculino")  && 
-        (ans3 =="sentado" || ans3 == "Sentado" || ans3 == "Sentada" || ans3 == "sentada") && 
-        (res4 < 12) && (ans5== "nao" || ans5== "Nao" || ans5== "Não" || ans5== "não"))
-        {
-        var result = Math.trunc((((11.71*res6)+587.7)*1.55))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
-
      // Manter peso
     if (((res1 >= 60)) && (ans2 == "masculino" || ans2 == "Masculino") && 
         (ans3 =="fisico" || ans3 == "Fisico" || ans3 == "Físico" || ans3 == "físico") && 
@@ -935,14 +861,7 @@ function returnCalories(){
     }
 
     
-    /*if (((res1 >= 60)) && (ans2 == "masculino" || ans2 == "Masculino")  && 
-        (ans3 =="fisico" || ans3 == "Fisico" || ans3 == "Físico" || ans3 == "físico") && 
-        (res4 < 12) && (ans5== "sim" || ans5== "Sim"))
-        {
-        var result = Math.trunc((((11.71*res6)+587.7)*2.2))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
-   
+  
      // Manter o peso
     if (((res1 >= 60)) && (ans2 == "masculino" || ans2 == "Masculino") && 
         (ans3 =="fisico" || ans3 == "Fisico" || ans3 == "Físico" || ans3 == "físico") && 
@@ -977,13 +896,6 @@ function returnCalories(){
    }
    
 
-    /*if (((res1 >= 60)) && (ans2 == "masculino" || ans2 == "Masculino")  && 
-        (ans3 =="fisico" || ans3 == "Fisico" || ans3 == "Físico" || ans3 == "físico") && 
-        (res4 < 12) && (ans5== "nao" || ans5== "Nao" || ans5== "Não" || ans5== "não"))
-        {
-        var result = Math.trunc((((11.71*res6)+587.7)*1.9))
-        words.push("Você gasta em média " + result.toString() + " calorias por dia")
-    }*/
 
 
     

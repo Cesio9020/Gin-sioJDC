@@ -2,6 +2,7 @@ from django.forms import ModelForm
 from django import forms
 from django.contrib.auth.models import User
 from .models import Profile
+from .models import *
 
 class ProfileForm(ModelForm):
     class Meta:
@@ -24,9 +25,9 @@ class EmailForm(ModelForm):
 
 
 
-from django.forms import ModelForm
-from django import forms
-from .models import *
+
+
+
 
 class ChatmessageCreateform(ModelForm):
     class Meta:
