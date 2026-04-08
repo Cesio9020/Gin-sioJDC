@@ -58,7 +58,7 @@ It allows users to track their fitness progress while enabling admins to create 
 ## 📸 Demo
 
 
-https://www.linkedin.com/posts/alfredo-ussivane-058229257_i-started-building-a-gym-management-web-ugcPost-7447644813442756608-i9AR?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD83JwQBvoU-bmxiTRcTwbStzFA6pNArkCI
+https://www.linkedin.com/posts/alfredo-ussivane-058229257_i-started-building-a-gym-management-web-activity-7447654277919088640-DV21?utm_source=share&utm_medium=member_desktop&rcm=ACoAAD83JwQBvoU-bmxiTRcTwbStzFA6pNArkCI
 
 ---
 
