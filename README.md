@@ -62,6 +62,13 @@ https://www.linkedin.com/posts/alfredo-ussivane-058229257_i-started-building-a-g
 
 ---
 
+## 🔄 Future Improvements
+
+- Refactor frontend for better scalability and maintainability  
+- Implement Redis for caching  
+- Deploy using Daphne  
+- Improve UI/UX  
+
 ## 🧠 What I Learned
 
 - Building real-time systems using WebSockets and Django Channels  
