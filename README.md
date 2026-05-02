@@ -40,7 +40,7 @@ It allows users to track their fitness progress while enabling admins to create 
 
 - **Backend:** Django, Django Channels  
 - **Frontend:** HTML, CSS, JavaScript  
-- **Database:** PostgreSQL  
+- **Database:** PostgreSQL Redis 
 - **Real-time:** WebSockets  
 - **Planned improvements:** Redis (caching), Daphne (production server)
 
@@ -64,8 +64,7 @@ https://www.linkedin.com/posts/alfredo-ussivane-058229257_i-started-building-a-g
 
 ## 🔄 Future Improvements
 
-- Refactor frontend for better scalability and maintainability  
-- Implement Redis for caching  
+- Refactor frontend for better scalability and maintainability   
 - Deploy using Daphne  
 - Improve UI/UX  
 
