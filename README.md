@@ -69,16 +69,6 @@ https://www.linkedin.com/posts/alfredo-ussivane-058229257_i-started-building-a-g
 - Structuring backend systems for scalability  
 - Managing relational data with PostgreSQL  
 
----
-
-## 🔄 Future Improvements
-
-- Refactor frontend for better scalability and maintainability  
-- Implement Redis for caching  
-- Deploy using Daphne  
-- Improve UI/UX  
-
----
 
 ## 📌 Notes
 
